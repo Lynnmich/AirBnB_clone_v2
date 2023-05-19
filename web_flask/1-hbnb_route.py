@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""A script that starts a Flask web application and returns Hello HBNB & HBNB """
+"""A script that starts a Flask web application & returns Hello HBNB & HBNB"""
 
 
 from flask import Flask
