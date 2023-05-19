@@ -21,7 +21,7 @@ def hbnb():
 @app.route('/C/<text>', strict_slashes=False)
 def c(text):
     """Returns C plus the value of the text variable"""
-    return 'C {}'.format(text.replace('_', ' '))
+    return "C {}".format(text.replace("_", " "))
 
 
 if __name__ == "__main__":
