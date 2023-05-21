@@ -5,6 +5,7 @@ import sqlalchemy
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 from os import getenv
+from models import storage
 
 
 class State(BaseModel, Base):
@@ -24,7 +25,7 @@ class State(BaseModel, Base):
             """getter for cities with given state id"""
             city_list = []
             cities = models.storage.all(City)
-            for city in cities:
+            for city in cities.values():
                 if city.state_id == self.id:
                     city_list.append(city)
             return city_list
