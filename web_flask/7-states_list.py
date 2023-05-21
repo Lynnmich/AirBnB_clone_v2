@@ -19,5 +19,5 @@ def states_list():
     sorted_states = sorted(states, key=lambda s: s.name)
     return render_template('7-states_list.html', states=sorted_states)
 
-if __name__ == "__main__':
+if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
