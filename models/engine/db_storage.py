@@ -11,7 +11,7 @@ from models.state import State
 from models.amenity import Amenity
 from models.review import Review
 import sqlalchemy
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, MetaData
 from sqlalchemy.orm import sessionmaker, scoped_session
 
 
@@ -70,11 +70,11 @@ class DBStorage:
 
     def reload(self):
         """creates all tables in the database"""
-        Base.metadata.create_all(self.__engine)
+        self.__session = Base.metadata.create_all(self.__engine)
         Session = sessionmaker(bind=self.__engine, expire_on_commit=False)
         session_thread = scoped_session(Session)
         self.__session = session_thread()
 
     def close(self):
         """close session"""
-        self.__session.remove()
+        self.__session.close()
