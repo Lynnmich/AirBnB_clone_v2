@@ -3,10 +3,15 @@
 import models
 from models.base_model import BaseModel, Base
 import sqlalchemy
+<<<<<<< HEAD
 from mpdels.city import City
+=======
+>>>>>>> 3bd2172ff55d1511b651817796f96a1c73a024b9
 from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 from os import getenv
+import models
+from models import storage
 
 
 class State(BaseModel, Base):
@@ -27,7 +32,7 @@ class State(BaseModel, Base):
             """getter for cities with given state id"""
             city_list = []
             cities = models.storage.all(City)
-            for city in cities:
+            for city in storage.all(City).values():
                 if city.state_id == self.id:
                     city_list.append(city)
             return city_list
