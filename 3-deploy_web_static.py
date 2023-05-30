@@ -6,13 +6,13 @@ and distributes an archive to your web servers, using the function deploy
 from fabric.api import *
 import os
 do_pack = __import__('1-pack_web_static').do_pack
-# do_deploy = __import__('2-do_deploy_web_static').do_deploy
+do_deploy = __import__('2-do_deploy_web_static').do_deploy
 
 env.hosts = ['54.90.37.210', '100.25.137.138']
 
 
 def deploy():
-    """Pack and deploy all files """
+    """Pack and deploy all files"""
     file_path = do_pack()
     if not file_path:
         return False
